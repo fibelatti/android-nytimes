@@ -14,9 +14,14 @@
     <string name="hint_cancel">Cancel</string>
     <string name="hint_search">Search</string>
     <string name="hint_back">Navigate back</string>
+    <string name="hint_try_again">Try again</string>
 
     <string name="generic_log_error">Error in %1$s (%2$s)</string>
 
     <string name="generic_msg_error">Oops! Something went wrong. Please try again.</string>
 
+    <string name="generic_hint_publish_date">Published in %s</string>
+
+    <!-- MainActivity -->
+    <string name="main_title">The NYTimes - Most Viewed</string>
 </resources>
