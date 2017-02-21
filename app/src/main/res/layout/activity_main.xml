@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:fab="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/root_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorWhiteOpaque"
+    android:fitsSystemWindows="true"
+    tools:context=".presentation.ui.activities.MainActivity">
+
+    <include layout="@layout/toolbar_default"/>
+
+    <include layout="@layout/layout_relative_swipe_recycler_view"/>
+
+    <RelativeLayout
+        android:id="@+id/layout_placeholder"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="@dimen/margin_small"
+        android:layout_marginRight="@dimen/margin_small">
+
+        <TextView
+            android:id="@+id/text_view_placeholder"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center|top"
+            android:padding="@dimen/padding_large"
+            android:text="@string/generic_msg_error"
+            android:textColor="@color/textSecondary"
+            android:textSize="@dimen/text_size_regular"/>
+
+        <Button
+            android:id="@+id/button_try_again"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/button_height"
+            android:layout_below="@+id/text_view_placeholder"
+            android:text="@string/hint_try_again"
+            android:theme="@style/PrimaryButton"/>
+    </RelativeLayout>
+
+    <com.github.clans.fab.FloatingActionButton
+        android:id="@+id/fab_search"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_marginBottom="@dimen/fab_margin"
+        android:layout_marginEnd="@dimen/fab_margin"
+        android:layout_marginRight="@dimen/fab_margin"
+        android:src="@drawable/ic_search_white_24dp"
+        fab:fab_colorNormal="@color/colorAccent"
+        fab:fab_colorPressed="@color/colorAccent"
+        fab:layout_behavior=".presentation.ui.extensions.ClansFloatingActionBehavior"/>
+</android.support.design.widget.CoordinatorLayout>
