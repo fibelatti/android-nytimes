@@ -1,6 +1,9 @@
 package com.fibelatti.nytimes.presentation.ui;
 
 import android.app.Activity;
+import android.content.Intent;
+
+import com.fibelatti.nytimes.presentation.ui.activities.SearchActivity;
 
 public class Navigator {
     Activity activity;
@@ -10,7 +13,7 @@ public class Navigator {
     }
 
     public void startSearchActivity() {
-//        Intent intent = new Intent(activity, SearchActivity.class);
-//        activity.startActivity(intent);
+        Intent intent = new Intent(activity, SearchActivity.class);
+        activity.startActivity(intent);
     }
 }

@@ -24,4 +24,12 @@
 
     <!-- MainActivity -->
     <string name="main_title">The NYTimes - Most Viewed</string>
+
+    <!-- SearchActivity -->
+    <string name="search_title">The NYTimes - Search</string>
+
+    <string name="search_hint">Search for articles</string>
+
+    <string name="search_no_results">Oops! There are no results for the keywords you searched.</string>
+
 </resources>

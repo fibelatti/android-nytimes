@@ -2,7 +2,7 @@
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/layout_content"
+    android:id="@+id/layout_placeholder_no_results"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_marginLeft="@dimen/margin_small"
@@ -11,15 +11,13 @@
     android:visibility="gone"
     app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-    <android.support.v4.widget.SwipeRefreshLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        android:id="@+id/swipe_refresh"
+    <TextView
+        android:id="@+id/text_view_placeholder"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <android.support.v7.widget.RecyclerView
-            android:id="@+id/recycler_view_articles"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
-    </android.support.v4.widget.SwipeRefreshLayout>
+        android:layout_height="wrap_content"
+        android:gravity="center|top"
+        android:padding="@dimen/padding_large"
+        android:text="@string/search_no_results"
+        android:textColor="@color/textSecondary"
+        android:textSize="@dimen/text_size_regular"/>
 </RelativeLayout>

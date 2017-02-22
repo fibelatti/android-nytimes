@@ -10,6 +10,7 @@ import rx.Observable;
 
 public interface ArticleService {
     String BASE_URL = "https://api.nytimes.com/svc/";
+    String BASE_IMG_URL = "https://static01.nyt.com/";
 
     @GET("mostpopular/v2/mostviewed/all-sections/{amount_of_days}.json")
     Observable<MostViewed> getMostViewedArticles(
