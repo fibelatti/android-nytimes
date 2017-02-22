@@ -28,6 +28,17 @@
             </intent-filter>
         </activity>
 
+        <activity
+            android:name=".presentation.ui.activities.SearchActivity"
+            android:configChanges="orientation"
+            android:parentActivityName=".presentation.ui.activities.MainActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".presentation.ui.activities.MainActivity"/>
+        </activity>
+
     </application>
 
 </manifest>
