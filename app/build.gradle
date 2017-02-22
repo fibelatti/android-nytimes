@@ -89,4 +89,8 @@ dependencies {
 
     // Picasso
     compile "com.squareup.picasso:picasso:$rootProject.ext.picassoVersion"
+    compile "com.jakewharton.picasso:picasso2-okhttp3-downloader:$rootProject.ext.picassoDownloaderVersion"
+
+    // okHttp
+    compile "com.squareup.okhttp3:okhttp:$rootProject.ext.okHttpVersion"
 }

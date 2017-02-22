@@ -4,6 +4,8 @@ import android.app.Application;
 
 import com.crashlytics.android.Crashlytics;
 import com.crashlytics.android.core.CrashlyticsCore;
+import com.squareup.picasso.OkHttpDownloader;
+import com.squareup.picasso.Picasso;
 
 import io.fabric.sdk.android.Fabric;
 
@@ -27,10 +29,20 @@ public class AndroidApplication
                         .disabled(false)
                         .build()
                 ).build());
+
+        setPicassoCache();
     }
 
     @Override
     public void onTerminate() {
         super.onTerminate();
+    }
+
+    private void setPicassoCache() {
+        Picasso picasso = new Picasso.Builder(this)
+                .downloader(new OkHttp3Downloader(app, Integer.MAX_VALUE))
+                .build();
+
+        Picasso.setSingletonInstance(picasso);
     }
 }
