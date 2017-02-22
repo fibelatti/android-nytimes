@@ -18,6 +18,8 @@ import android.widget.RelativeLayout;
 
 import com.annimon.stream.Stream;
 import com.fibelatti.nytimes.R;
+import com.fibelatti.nytimes.helpers.AnalyticsHelper;
+import com.fibelatti.nytimes.helpers.impl.AnalyticsHelperImpl;
 import com.fibelatti.nytimes.models.Search;
 import com.fibelatti.nytimes.presentation.presenters.SearchPresenter;
 import com.fibelatti.nytimes.presentation.presenters.impl.SearchPresenterImpl;
@@ -38,6 +40,8 @@ public class SearchActivity
     public static final String TAG = SearchActivity.class.getSimpleName();
 
     private Context context;
+
+    private AnalyticsHelper analyticsHelper;
 
     private SearchPresenter presenter;
     private SearchAdapter searchAdapter;
@@ -76,6 +80,8 @@ public class SearchActivity
         super.onCreate(savedInstanceState);
 
         context = getApplicationContext();
+        analyticsHelper = AnalyticsHelperImpl.getInstance();
+
         presenter = SearchPresenterImpl.createPresenter(this);
         searchAdapter = new SearchAdapter(this);
 
@@ -165,6 +171,8 @@ public class SearchActivity
     private void refreshData() {
         this.currentPage = 1;
 
+        analyticsHelper.fireQueryArticlesEvent(query);
+
         if (searchSubscription != null && !searchSubscription.isUnsubscribed())
             searchSubscription.unsubscribe();
 
@@ -178,6 +186,8 @@ public class SearchActivity
 
     private void fetchNextPage() {
         this.currentPage++;
+
+        analyticsHelper.fireLoadNewPageEvent(currentPage);
 
         if (searchSubscription != null && !searchSubscription.isUnsubscribed())
             searchSubscription.unsubscribe();
