@@ -14,31 +14,7 @@
 
     <include layout="@layout/layout_relative_swipe_recycler_view"/>
 
-    <RelativeLayout
-        android:id="@+id/layout_placeholder"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginLeft="@dimen/margin_small"
-        android:layout_marginRight="@dimen/margin_small">
-
-        <TextView
-            android:id="@+id/text_view_placeholder"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center|top"
-            android:padding="@dimen/padding_large"
-            android:text="@string/generic_msg_error"
-            android:textColor="@color/textSecondary"
-            android:textSize="@dimen/text_size_regular"/>
-
-        <Button
-            android:id="@+id/button_try_again"
-            android:layout_width="wrap_content"
-            android:layout_height="@dimen/button_height"
-            android:layout_below="@+id/text_view_placeholder"
-            android:text="@string/hint_try_again"
-            android:theme="@style/PrimaryButton"/>
-    </RelativeLayout>
+    <include layout="@layout/layout_placeholder_retry_button"/>
 
     <com.github.clans.fab.FloatingActionButton
         android:id="@+id/fab_search"
