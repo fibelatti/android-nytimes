@@ -16,6 +16,8 @@ import android.widget.RelativeLayout;
 
 import com.annimon.stream.Stream;
 import com.fibelatti.nytimes.R;
+import com.fibelatti.nytimes.helpers.AnalyticsHelper;
+import com.fibelatti.nytimes.helpers.impl.AnalyticsHelperImpl;
 import com.fibelatti.nytimes.models.MostViewed;
 import com.fibelatti.nytimes.presentation.presenters.MainPresenter;
 import com.fibelatti.nytimes.presentation.presenters.impl.MainPresenterImpl;
@@ -38,6 +40,8 @@ public class MainActivity
     private static final int DAYS_THIRTY = 30;
 
     private Context context;
+
+    private AnalyticsHelper analyticsHelper;
 
     private MainPresenter presenter;
     private MostViewedAdapter mostViewedAdapter;
@@ -66,6 +70,8 @@ public class MainActivity
         super.onCreate(savedInstanceState);
 
         context = getApplicationContext();
+        analyticsHelper = AnalyticsHelperImpl.getInstance();
+
         presenter = MainPresenterImpl.createPresenter(this);
         mostViewedAdapter = new MostViewedAdapter(this);
 
@@ -125,6 +131,8 @@ public class MainActivity
     }
 
     private void refreshData() {
+        analyticsHelper.fireRefreshMostViewedEvent();
+
         if (mostViewedSubscription != null && !mostViewedSubscription.isUnsubscribed())
             mostViewedSubscription.unsubscribe();
 
