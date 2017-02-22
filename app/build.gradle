@@ -70,6 +70,7 @@ dependencies {
     // Rx
     compile "io.reactivex:rxandroid:$rootProject.ext.rxAndroidVersion"
     compile "io.reactivex:rxjava:$rootProject.ext.rxJavaVersion"
+    compile "com.jakewharton.rxbinding:rxbinding-appcompat-v7:$rootProject.ext.rxBindingsVersion"
 
     // Stream
     compile "com.annimon:stream:$rootProject.ext.streamVersion"
