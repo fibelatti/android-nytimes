@@ -146,7 +146,7 @@ public class SearchActivity
         requestFocus(searchBar);
 
         searchBar.setOnEditorActionListener((v, keyCode, event) -> {
-            if ((event.getAction() == KeyEvent.ACTION_DOWN) && (keyCode == KeyEvent.KEYCODE_ENTER)) {
+            if (event != null && event.getAction() == KeyEvent.ACTION_DOWN && keyCode == KeyEvent.KEYCODE_ENTER) {
                 InputMethodManager imm = (InputMethodManager) context.getSystemService(Context.INPUT_METHOD_SERVICE);
                 imm.hideSoftInputFromWindow(searchBar.getWindowToken(), 0);
                 return true;
