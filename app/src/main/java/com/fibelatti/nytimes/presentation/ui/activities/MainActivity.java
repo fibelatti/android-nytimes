@@ -24,6 +24,7 @@ import com.github.clans.fab.FloatingActionButton;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 import rx.Subscription;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.schedulers.Schedulers;
@@ -95,7 +96,8 @@ public class MainActivity
         super.onDestroy();
         presenter.onDestroy();
 
-        if (!mostViewedSubscription.isUnsubscribed()) mostViewedSubscription.unsubscribe();
+        if (mostViewedSubscription != null && !mostViewedSubscription.isUnsubscribed())
+            mostViewedSubscription.unsubscribe();
     }
 
     private void setUpLayout() {
@@ -129,9 +131,14 @@ public class MainActivity
         mostViewedSubscription = presenter.getMostViewedArticles(DAYS_ONE)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .doOnSubscribe(() -> mostViewedAdapter.clearArticleList())
+                .doOnSubscribe(this::showLoadAndClearList)
                 .doOnCompleted(this::hideLoadAndNotifyChanges)
                 .subscribe(this::addResultsToList, this::handleError);
+    }
+
+    private void showLoadAndClearList() {
+        swipeRefresh.setRefreshing(true);
+        mostViewedAdapter.clearArticleList();
     }
 
     private void hideLoadAndNotifyChanges() {
@@ -161,5 +168,10 @@ public class MainActivity
     private void showPlaceholderLayout() {
         layoutContent.setVisibility(View.GONE);
         layoutPlaceholder.setVisibility(View.VISIBLE);
+    }
+
+    @OnClick(R.id.button_try_again)
+    public void tryReload() {
+        refreshData();
     }
 }
