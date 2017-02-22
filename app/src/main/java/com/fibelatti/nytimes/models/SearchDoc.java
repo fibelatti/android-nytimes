@@ -1,9 +1,10 @@
 
 package com.fibelatti.nytimes.models;
 
-import java.util.List;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
+
+import java.util.List;
 
 public class SearchDoc {
 
@@ -52,9 +53,6 @@ public class SearchDoc {
     @SerializedName("subsection_name")
     @Expose
     private String subsectionName;
-    @SerializedName("byline")
-    @Expose
-    private Byline byline;
     @SerializedName("type_of_material")
     @Expose
     private String typeOfMaterial;
@@ -186,14 +184,6 @@ public class SearchDoc {
 
     public void setSubsectionName(String subsectionName) {
         this.subsectionName = subsectionName;
-    }
-
-    public Byline getByline() {
-        return byline;
-    }
-
-    public void setByline(Byline byline) {
-        this.byline = byline;
     }
 
     public String getTypeOfMaterial() {
