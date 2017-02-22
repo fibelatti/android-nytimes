@@ -11,6 +11,7 @@ import android.widget.TextView;
 import com.annimon.stream.Stream;
 import com.fibelatti.nytimes.R;
 import com.fibelatti.nytimes.models.MostViewedResult;
+import com.fibelatti.nytimes.utils.DateUtils;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
@@ -86,7 +87,8 @@ public class MostViewedAdapter
                         }));
 
         dataViewHolder.articleTitle.setText(item.getTitle());
-        dataViewHolder.articlePublishDate.setText(context.getString(R.string.generic_hint_publish_date, item.getPublishedDate()));
+        dataViewHolder.articlePublishDate.setText(context.getString(R.string.generic_hint_publish_date,
+                        DateUtils.changeDateFormat("yyyy-MM-dd", "dd/MM/yyyy", item.getPublishedDate())));
         dataViewHolder.articleAbstract.setText(item.getAbstract());
     }
 }
